@@ -1,0 +1,9 @@
+<h1>Add a New Bookmark to <%= @list.name %></h1>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.association :movie, collection: Movie.all, label_method: :title, value_method: :id, include_blank: false, label: "Select a movie" %>
+  <%= f.input :comment, as: :text, input_html: { rows: 3 } %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back to List', list_path(@list), class: 'btn btn-secondary' %>
