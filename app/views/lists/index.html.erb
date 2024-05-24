@@ -17,7 +17,7 @@
         <td><%= link_to list.name, list_path(list) %></td>
         <td>
           <%= link_to 'View', list_path(list), class: 'btn btn-info' %>
-          <%= link_to 'Delete', list_path(list), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+          <%= link_to 'Delete', list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class: 'd-inline btn btn-danger' %>
         </td>
       </tr>
     <% end %>
