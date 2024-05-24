@@ -9,7 +9,7 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list  # Ensure the bookmark is associated with the list
     if @bookmark.save
-      redirect_to list_path(@list), notice: 'Bookmark was successfully created.'
+      redirect_to root_path(@list), notice: 'Bookmark was successfully created.'
     else
       render :new
     end
@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to list_path(@bookmark.list), notice: 'Bookmark was successfully deleted.'
+    redirect_to root_path(@bookmark.list), notice: 'Bookmark was successfully deleted.'
   end
 
   private
