@@ -1,6 +1,6 @@
 <h1>Movie Lists</h1>
 
-<%= link_to 'New List', new_root_path, class: 'btn btn-primary mb-3' %>
+<%= link_to 'New List', new_list_path, class: 'btn btn-primary mb-3' %>
 
 <table class="table">
   <thead class="thead-dark">
@@ -14,10 +14,10 @@
     <% @lists.each_with_index do |list, index| %>
       <tr>
         <th scope="row"><%= index + 1 %></th>
-        <td><%= link_to list.name, root_path(list) %></td>
+        <td><%= link_to list.name, list_path(list) %></td>
         <td>
-          <%= link_to 'View', root_path(list), class: 'btn btn-info' %>
-          <%= link_to 'Delete', root_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class: 'd-inline btn btn-danger' %>
+          <%= link_to 'View', list_path(list), class: 'btn btn-info' %>
+          <%= link_to 'Delete', list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},  class: 'd-inline btn btn-danger' %>
         </td>
       </tr>
     <% end %>
